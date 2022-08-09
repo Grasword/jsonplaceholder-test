@@ -1,22 +1,33 @@
 import { baseUrl } from '../configs/AppConfig.js'
 import axios from 'axios'
 
-class ToDoModel {
-  static async fetch(limit) {
+class Client {
+  static async fetch(path, limit) {
+    const url = new URL(path, baseUrl)
+
     try {
-      const response = await axios.get(baseUrl)
-      response.data = response.data.slice(0, limit)
-      return response
+      if (limit) {
+        const response = await axios.get(url.href)
+        response.data = response.data.slice(0, limit)
+        return response
+      } else {
+        return await axios.get(url.href)
+      }
     } catch (e) {
       return e.response
     }
   }
 
   static formatTodo(todo) {
-    return todo.map(({ title, completed }) => {
+    if (Array.isArray(todo)) {
+      return todo.map(({ title, completed }) => {
+        return { title, completed }
+      })
+    } else {
+      const { title, completed } = todo
       return { title, completed }
-    })
+    }
   }
 }
 
-export default ToDoModel
+export default Client
