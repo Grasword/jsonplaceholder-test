@@ -3,4 +3,4 @@
 ## Instructions:
 1. clone repo
 2. install dependencies with `npm install`
-3. run `npm test
+3. run `npm test`
