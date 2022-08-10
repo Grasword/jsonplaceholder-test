@@ -1,0 +1,17 @@
+name: data
+
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: volta-cli/action@v1
+      - run: npm ci
+      - run: npm run test-data
