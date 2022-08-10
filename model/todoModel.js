@@ -2,17 +2,11 @@ import { baseUrl } from '../configs/AppConfig.js'
 import axios from 'axios'
 
 class Client {
-  static async fetch(path, limit) {
+  static async fetch(path) {
     const url = new URL(path, baseUrl)
 
     try {
-      if (limit) {
-        const response = await axios.get(url.href)
-        response.data = response.data.slice(0, limit)
-        return response
-      } else {
-        return await axios.get(url.href)
-      }
+      return await axios.get(url.href)
     } catch (e) {
       return e.response
     }
@@ -27,6 +21,10 @@ class Client {
       const { title, completed } = todo
       return { title, completed }
     }
+  }
+
+  static limit(data, from, to) {
+    return data.slice(from, to)
   }
 }
 
