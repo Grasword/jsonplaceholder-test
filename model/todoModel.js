@@ -4,12 +4,10 @@ import axios from 'axios'
 class Client {
   static async fetch(path) {
     const url = new URL(path, baseUrl)
-
-    try {
-      return await axios.get(url.href)
-    } catch (e) {
-      return e.response
-    }
+    return axios
+      .get(url.href)
+      .then(({ status, data }) => ({ status, data }))
+      .catch((e) => e.response)
   }
 
   static formatTodo(todo) {
