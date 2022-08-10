@@ -1,4 +1,4 @@
-import Client from '../model/todoModel'
+import Client from '../client'
 
 const ID_LIST = Array.from({ length: 210 }, (_, i) => i + 1)
 

@@ -1,4 +1,4 @@
-import Client from '../model/todoModel'
+import Client from '../client'
 import pMap from 'p-map'
 
 // this tests SHOULD be falling!

@@ -1,4 +1,4 @@
-import { baseUrl } from '../configs/AppConfig.js'
+import { baseUrl } from '../configs/base.js'
 import axios from 'axios'
 
 class Client {

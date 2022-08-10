@@ -1,4 +1,4 @@
-import Client from '../model/todoModel'
+import Client from '../client'
 
 describe('Todo', () => {
   test('remote API returns 200', async () => {
