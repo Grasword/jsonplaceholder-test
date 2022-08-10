@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Todo return data is an object 1`] = `
+exports[`Todo completed property should be boolean and title should be string 1`] = `
 Object {
-  "completed": false,
-  "id": 1,
-  "title": "delectus aut autem",
-  "userId": 1,
+  "completed": Any<Boolean>,
+  "title": Any<String>,
 }
 `;
